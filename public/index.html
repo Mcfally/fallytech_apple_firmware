@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FallyTech — Apple Firmware</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">F</span><span>FallyTech</span></div>
+  <nav><a href="#firmware">Firmware</a><a href="#flash">Flash Guide</a><a href="#how">How it works</a></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">ONLINE PHONE SOFTWARE SERVICES</div>
+    <h1>Apple firmware, <span>without the searching.</span></h1>
+    <p>Choose an iPhone, iPad or other Apple device and see available IPSW firmware directly from FallyTech.</p>
+    <a class="primary" href="#firmware">Find firmware</a>
+  </section>
+
+  <section id="firmware" class="panel">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">FIRMWARE FINDER</div>
+        <h2>Choose Your Apple Device</h2>
+      </div>
+      <span id="apiStatus" class="status">Connecting…</span>
+    </div>
+
+    <div class="product-selector">
+      <button class="product-btn" data-product="iPhone">
+        <span class="product-icon">📱</span> iPhone
+      </button>
+      <button class="product-btn" data-product="iPad">
+        <span class="product-icon">📲</span> iPad
+      </button>
+      <button class="product-btn" data-product="Watch">
+        <span class="product-icon">⌚</span> Apple Watch
+      </button>
+      <button class="product-btn" data-product="Mac">
+        <span class="product-icon">🖥️</span> Mac
+      </button>
+    </div>
+
+    <div class="controls" id="deviceControls" style="display: none;">
+      <label>
+        Device
+        <select id="deviceSelect"><option value="">Loading devices…</option></select>
+      </label>
+      <label id="versionLabel" style="display: none;">
+        iOS Version
+        <select id="versionSelect"><option value="">Loading versions…</option></select>
+      </label>
+    </div>
+
+    <div id="downloadSection" style="display: none; margin-top: 20px; padding: 20px; background: #f0fdf4; border-radius: 12px; border: 1px solid #86efac;">
+      <div id="downloadInfo" style="margin-bottom: 15px;"></div>
+      <a id="downloadBtn" class="download-button" target="_blank" rel="noopener noreferrer">
+        ⬇️ Download Firmware
+      </a>
+    </div>
+
+    <div id="message" class="message">Select a product category to get started.</div>
+    <div id="firmwareList" class="firmware-grid"></div>
+  </section>
+
+  <section id="flash" class="panel flash-guide">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">FLASHING GUIDE</div>
+        <h2>How to Flash iPhone with 3uTools</h2>
+      </div>
+    </div>
+
+    <div class="guide-content">
+      <!-- Step 1: Install 3uTools -->
+      <div class="guide-step">
+        <div class="step-number">Step 1</div>
+        <h3>Download & Install 3uTools</h3>
+        <ol class="instructions">
+          <li>Visit the official 3uTools website: <a href="https://www.3u.com" target="_blank" rel="noopener noreferrer">https://www.3u.com</a></li>
+          <li>Click on <strong>"Download"</strong> to get the latest version</li>
+          <li>Select your operating system:
+            <ul>
+              <li><strong>Windows:</strong> Download the Windows installer (.exe)</li>
+              <li><strong>macOS:</strong> Download the macOS version</li>
+            </ul>
+          </li>
+          <li>Run the installer and follow the on-screen prompts</li>
+          <li>Complete the installation by clicking <strong>"Finish"</strong></li>
+        </ol>
+        <div class="note">
+          <strong>⚠️ Note:</strong> 3uTools is primarily for Windows. macOS users can use Apple Configurator 2 or other flashing tools.
+        </div>
+      </div>
+
+      <!-- Step 2: Prepare Device -->
+      <div class="guide-step">
+        <div class="step-number">Step 2</div>
+        <h3>Prepare Your iPhone</h3>
+        <ol class="instructions">
+          <li><strong>Back up your data</strong> using iCloud or iTunes (flashing will erase your device)</li>
+          <li>Disable <strong>Find My iPhone:</strong>
+            <ul>
+              <li>Open <strong>Settings</strong> → <strong>[Your Name]</strong> → <strong>Find My</strong></li>
+              <li>Tap <strong>Find My iPhone</strong> → Toggle <strong>OFF</strong></li>
+              <li>Enter your Apple ID password if prompted</li>
+            </ul>
+          </li>
+          <li>Note your iPhone's <strong>UDID</strong> (Unique Device Identifier) - you'll need this in 3uTools</li>
+          <li>Have a USB cable ready (preferably original or certified)</li>
+        </ol>
+      </div>
+
+      <!-- Step 3: Download Firmware -->
+      <div class="guide-step">
+        <div class="step-number">Step 3</div>
+        <h3>Download iPhone Firmware (IPSW)</h3>
+        <ol class="instructions">
+          <li>Go back to the <a href="#firmware"><strong>Firmware Finder</strong></a> section above</li>
+          <li>Select <strong>iPhone</strong> from the product buttons</li>
+          <li>Choose your specific iPhone model from the device dropdown</li>
+          <li>Select your desired iOS version from the version dropdown</li>
+          <li>Click the <strong>⬇️ Download Firmware</strong> button to download the .ipsw file</li>
+          <li>Save the file to a known location on your computer (e.g., Desktop or Downloads)</li>
+        </ol>
+        <div class="note">
+          <strong>💾 Tip:</strong> IPSW files are typically 4-5 GB. Ensure you have enough storage space.
+        </div>
+      </div>
+
+      <!-- Step 4: Connect iPhone to 3uTools -->
+      <div class="guide-step">
+        <div class="step-number">Step 4</div>
+        <h3>Connect iPhone to 3uTools</h3>
+        <ol class="instructions">
+          <li>Launch <strong>3uTools</strong> on your computer</li>
+          <li>Connect your iPhone to your computer using a USB cable</li>
+          <li>On your iPhone, tap <strong>"Trust"</strong> when prompted to trust this computer</li>
+          <li>Enter your iPhone's passcode if prompted</li>
+          <li>3uTools should automatically detect your device and display:
+            <ul>
+              <li>Device name and model</li>
+              <li>Current iOS version</li>
+              <li>Serial number and UDID</li>
+            </ul>
+          </li>
+        </ol>
+        <div class="note">
+          <strong>⚠️ Important:</strong> If your device isn't recognized, try:
+          <ul>
+            <li>Reinstall iTunes or Apple Mobile Device Support</li>
+            <li>Try a different USB port or cable</li>
+            <li>Restart both your iPhone and computer</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 5: Flash the Firmware -->
+      <div class="guide-step">
+        <div class="step-number">Step 5</div>
+        <h3>Flash iPhone with New Firmware</h3>
+        <ol class="instructions">
+          <li>In 3uTools, look for the <strong>"Flash"</strong> or <strong>"Restore"</strong> button (usually in the main interface or under "Tools")</li>
+          <li>Click the button and select <strong>"Browse"</strong> or <strong>"Select File"</strong></li>
+          <li>Navigate to the .ipsw firmware file you downloaded in Step 3</li>
+          <li>Select the file and click <strong>"Open"</strong> or <strong>"Confirm"</strong></li>
+          <li>Review the options:
+            <ul>
+              <li><strong>Preserve data (optional):</strong> Check if you want to keep data (not always reliable)</li>
+              <li><strong>Backup (recommended):</strong> Create a backup before flashing</li>
+            </ul>
+          </li>
+          <li>Click <strong>"Flash"</strong> or <strong>"Start"</strong> to begin the process</li>
+        </ol>
+      </div>
+
+      <!-- Step 6: Monitor the Process -->
+      <div class="guide-step">
+        <div class="step-number">Step 6</div>
+        <h3>Monitor Flashing Progress</h3>
+        <ol class="instructions">
+          <li>The flashing process will begin and display a progress bar</li>
+          <li>Your iPhone will:
+            <ul>
+              <li>Restart into Recovery Mode (Apple logo may appear)</li>
+              <li>Show various status messages</li>
+              <li>Progress through extraction and flashing steps</li>
+            </ul>
+          </li>
+          <li><strong>DO NOT disconnect your iPhone or force quit 3uTools</strong> during this time</li>
+          <li>The process typically takes <strong>5-15 minutes</strong> depending on file size and system speed</li>
+        </ol>
+        <div class="note">
+          <strong>⏱️ Timing:</strong> The progress bar may sometimes pause momentarily - this is normal.
+        </div>
+      </div>
+
+      <!-- Step 7: Completion -->
+      <div class="guide-step">
+        <div class="step-number">Step 7</div>
+        <h3>Complete the Setup</h3>
+        <ol class="instructions">
+          <li>When flashing completes, 3uTools will show a <strong>"Success"</strong> message</li>
+          <li>Your iPhone will automatically restart with the new iOS version</li>
+          <li>On your iPhone:
+            <ul>
+              <li>You'll see the "Hello" setup screen</li>
+              <li>Select your language and follow the setup wizard</li>
+              <li>Enter your Apple ID credentials</li>
+              <li>Optionally restore from your backup (if you created one)</li>
+            </ul>
+          </li>
+          <li>Safely disconnect your iPhone from the USB cable</li>
+          <li>Verify the iOS version in <strong>Settings</strong> → <strong>General</strong> → <strong>About</strong></li>
+        </ol>
+      </div>
+
+      <!-- Troubleshooting -->
+      <div class="guide-step troubleshooting">
+        <div class="step-number">⚙️</div>
+        <h3>Troubleshooting Common Issues</h3>
+        <div class="troubleshooting-items">
+          <div class="trouble-item">
+            <strong>❌ "Device not recognized"</strong>
+            <p>Install or update iTunes, USB drivers, and Apple Mobile Device Service. Try different USB ports and cables.</p>
+          </div>
+          <div class="trouble-item">
+            <strong>❌ "Error 3, 11, or 13"</strong>
+            <p>These are USB connection errors. Try a different USB cable or computer port. Disable antivirus software temporarily.</p>
+          </div>
+          <div class="trouble-item">
+            <strong>❌ "iPhone stuck in Recovery Mode"</strong>
+            <p>Try flashing again with the correct .ipsw file. Force restart the device (power + volume buttons) and reconnect.</p>
+          </div>
+          <div class="trouble-item">
+            <strong>❌ "Firmware mismatch error"</strong>
+            <p>Ensure you're using the .ipsw file for your exact iPhone model. Check the filename contains your model identifier.</p>
+          </div>
+          <div class="trouble-item">
+            <strong>❌ "Find My iPhone lock"</strong>
+            <p>If you forgot your Apple ID, you'll see an Activation Lock. Sign in with your Apple ID or visit iforgot.apple.com</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Safety Tips -->
+      <div class="guide-step safety">
+        <div class="step-number">🛡️</div>
+        <h3>Safety Tips & Best Practices</h3>
+        <ul class="instructions">
+          <li>✅ <strong>Always back up</strong> your data before flashing</li>
+          <li>✅ <strong>Use a reliable USB connection</strong> - avoid USB hubs if possible</li>
+          <li>✅ <strong>Keep your computer plugged in</strong> during the process</li>
+          <li>✅ <strong>Close unnecessary programs</strong> to avoid interruptions</li>
+          <li>✅ <strong>Disable Find My iPhone</strong> before flashing</li>
+          <li>✅ <strong>Download from trusted sources</strong> only (like FallyTech)</li>
+          <li>❌ <strong>Never disconnect</strong> your device during flashing</li>
+          <li>❌ <strong>Never update firmware</strong> while on low battery</li>
+          <li>❌ <strong>Don't use your device</strong> while flashing is in progress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+    <div><b>01</b><h3>Select</h3><p>Choose your Apple device from FallyTech's live device database.</p></div>
+    <div><b>02</b><h3>Check</h3><p>FallyTech shows firmware versions and whether they are currently signed.</p></div>
+    <div><b>03</b><h3>Download</h3><p>The download button sends the customer to the firmware URL returned by the service.</p></div>
+  </section>
+</main>
+
+<footer>
+  <div>© 2026 FallyTech</div>
+  <div>Powered by FallyTech. Data sourced from IPSW.me. Apple is not affiliated with FallyTech.</div>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "fallytech-apple-firmware",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FallyTech Apple firmware finder powered by the IPSW.me API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
