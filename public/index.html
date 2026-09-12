@@ -4,23 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FallyTech — Apple Firmware</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <header class="topbar">
   <div class="brand"><span class="logo">F</span><span>FallyTech</span></div>
-  <nav><a href="#firmware">Firmware</a><a href="#flash">Flash Guide</a><a href="#how">How it works</a></nav>
+  <div class="header-actions">
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <i class="fa-solid fa-sun theme-icon"></i>
+    </button>
+    <nav><a href="#firmware">Firmware</a><a href="#flash">Flash Guide</a><a href="#how">How it works</a></nav>
+  </div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero reveal">
     <div class="eyebrow">ONLINE PHONE SOFTWARE SERVICES</div>
     <h1>Apple firmware, <span>without the searching.</span></h1>
     <p>Choose an iPhone, iPad or other Apple device and see available IPSW firmware directly from FallyTech.</p>
     <a class="primary" href="#firmware">Find firmware</a>
   </section>
 
-  <section id="firmware" class="panel">
+  <section id="firmware" class="panel reveal">
     <div class="section-head">
       <div>
         <div class="eyebrow">FIRMWARE FINDER</div>
@@ -31,42 +39,46 @@
 
     <div class="product-selector">
       <button class="product-btn" data-product="iPhone">
-        <span class="product-icon">📱</span> iPhone
+        <span class="product-icon"><i class="fa-solid fa-mobile-screen-button"></i></span> iPhone
       </button>
       <button class="product-btn" data-product="iPad">
-        <span class="product-icon">📲</span> iPad
+        <span class="product-icon"><i class="fa-solid fa-tablet-screen-button"></i></span> iPad
       </button>
       <button class="product-btn" data-product="Watch">
-        <span class="product-icon">⌚</span> Apple Watch
+        <span class="product-icon"><i class="fa-solid fa-stopwatch"></i></span> Apple Watch
       </button>
       <button class="product-btn" data-product="Mac">
-        <span class="product-icon">🖥️</span> Mac
+        <span class="product-icon"><i class="fa-solid fa-laptop"></i></span> Mac
       </button>
     </div>
 
-    <div class="controls" id="deviceControls" style="display: none;">
+    <div class="controls" id="deviceControls">
       <label>
         Device
         <select id="deviceSelect"><option value="">Loading devices…</option></select>
       </label>
-      <label id="versionLabel" style="display: none;">
+      <label id="versionLabel">
         iOS Version
         <select id="versionSelect"><option value="">Loading versions…</option></select>
       </label>
     </div>
+    <div id="versionPreview" class="version-preview hidden" aria-live="polite">
+      <span class="version-preview-badge"><i class="fa-solid fa-circle-check"></i> Recommended</span>
+      <strong id="versionPreviewText">Choose a device to view the latest iOS</strong>
+    </div>
 
-    <div id="downloadSection" style="display: none; margin-top: 20px; padding: 20px; background: #f0fdf4; border-radius: 12px; border: 1px solid #86efac;">
-      <div id="downloadInfo" style="margin-bottom: 15px;"></div>
+    <div id="downloadSection">
       <a id="downloadBtn" class="download-button" target="_blank" rel="noopener noreferrer">
-        ⬇️ Download Firmware
+        <i class="fa-solid fa-download"></i> Download Firmware
       </a>
+      <div id="downloadInfo"></div>
     </div>
 
     <div id="message" class="message">Select a product category to get started.</div>
     <div id="firmwareList" class="firmware-grid"></div>
   </section>
 
-  <section id="flash" class="panel flash-guide">
+  <section id="flash" class="panel flash-guide reveal">
     <div class="section-head">
       <div>
         <div class="eyebrow">FLASHING GUIDE</div>
@@ -76,7 +88,7 @@
 
     <div class="guide-content">
       <!-- Step 1: Install 3uTools -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 1</div>
         <h3>Download & Install 3uTools</h3>
         <ol class="instructions">
@@ -92,12 +104,12 @@
           <li>Complete the installation by clicking <strong>"Finish"</strong></li>
         </ol>
         <div class="note">
-          <strong>⚠️ Note:</strong> 3uTools is primarily for Windows. macOS users can use Apple Configurator 2 or other flashing tools.
+          <strong><i class="fa-solid fa-circle-info"></i> Note:</strong> 3uTools is primarily for Windows. macOS users can use Apple Configurator 2 or other flashing tools.
         </div>
       </div>
 
       <!-- Step 2: Prepare Device -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 2</div>
         <h3>Prepare Your iPhone</h3>
         <ol class="instructions">
@@ -115,7 +127,7 @@
       </div>
 
       <!-- Step 3: Download Firmware -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 3</div>
         <h3>Download iPhone Firmware (IPSW)</h3>
         <ol class="instructions">
@@ -127,12 +139,12 @@
           <li>Save the file to a known location on your computer (e.g., Desktop or Downloads)</li>
         </ol>
         <div class="note">
-          <strong>💾 Tip:</strong> IPSW files are typically 4-5 GB. Ensure you have enough storage space.
+          <strong><i class="fa-solid fa-floppy-disk"></i> Tip:</strong> IPSW files are typically 4-5 GB. Ensure you have enough storage space.
         </div>
       </div>
 
       <!-- Step 4: Connect iPhone to 3uTools -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 4</div>
         <h3>Connect iPhone to 3uTools</h3>
         <ol class="instructions">
@@ -149,7 +161,7 @@
           </li>
         </ol>
         <div class="note">
-          <strong>⚠️ Important:</strong> If your device isn't recognized, try:
+          <strong><i class="fa-solid fa-triangle-exclamation"></i> Important:</strong> If your device isn't recognized, try:
           <ul>
             <li>Reinstall iTunes or Apple Mobile Device Support</li>
             <li>Try a different USB port or cable</li>
@@ -159,7 +171,7 @@
       </div>
 
       <!-- Step 5: Flash the Firmware -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 5</div>
         <h3>Flash iPhone with New Firmware</h3>
         <ol class="instructions">
@@ -178,7 +190,7 @@
       </div>
 
       <!-- Step 6: Monitor the Process -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 6</div>
         <h3>Monitor Flashing Progress</h3>
         <ol class="instructions">
@@ -194,12 +206,12 @@
           <li>The process typically takes <strong>5-15 minutes</strong> depending on file size and system speed</li>
         </ol>
         <div class="note">
-          <strong>⏱️ Timing:</strong> The progress bar may sometimes pause momentarily - this is normal.
+          <strong><i class="fa-solid fa-clock"></i> Timing:</strong> The progress bar may sometimes pause momentarily - this is normal.
         </div>
       </div>
 
       <!-- Step 7: Completion -->
-      <div class="guide-step">
+      <div class="guide-step reveal">
         <div class="step-number">Step 7</div>
         <h3>Complete the Setup</h3>
         <ol class="instructions">
@@ -219,51 +231,53 @@
       </div>
 
       <!-- Troubleshooting -->
-      <div class="guide-step troubleshooting">
-        <div class="step-number">⚙️</div>
+      <div class="guide-step troubleshooting reveal">
+        <div class="step-number"><i class="fa-solid fa-screwdriver-wrench"></i></div>
         <h3>Troubleshooting Common Issues</h3>
         <div class="troubleshooting-items">
           <div class="trouble-item">
-            <strong>❌ "Device not recognized"</strong>
+            <strong><i class="fa-solid fa-circle-xmark"></i> "Device not recognized"</strong>
             <p>Install or update iTunes, USB drivers, and Apple Mobile Device Service. Try different USB ports and cables.</p>
           </div>
           <div class="trouble-item">
-            <strong>❌ "Error 3, 11, or 13"</strong>
+            <strong><i class="fa-solid fa-circle-xmark"></i> "Error 3, 11, or 13"</strong>
             <p>These are USB connection errors. Try a different USB cable or computer port. Disable antivirus software temporarily.</p>
           </div>
           <div class="trouble-item">
-            <strong>❌ "iPhone stuck in Recovery Mode"</strong>
+            <strong><i class="fa-solid fa-circle-xmark"></i> "iPhone stuck in Recovery Mode"</strong>
             <p>Try flashing again with the correct .ipsw file. Force restart the device (power + volume buttons) and reconnect.</p>
           </div>
           <div class="trouble-item">
-            <strong>❌ "Firmware mismatch error"</strong>
+            <strong><i class="fa-solid fa-circle-xmark"></i> "Firmware mismatch error"</strong>
             <p>Ensure you're using the .ipsw file for your exact iPhone model. Check the filename contains your model identifier.</p>
           </div>
           <div class="trouble-item">
-            <strong>❌ "Find My iPhone lock"</strong>
+            <strong><i class="fa-solid fa-circle-xmark"></i> "Find My iPhone lock"</strong>
             <p>If you forgot your Apple ID, you'll see an Activation Lock. Sign in with your Apple ID or visit iforgot.apple.com</p>
           </div>
         </div>
       </div>
 
       <!-- Safety Tips -->
-      <div class="guide-step safety">
-        <div class="step-number">🛡️</div>
+      <div class="guide-step safety reveal">
+        <div class="step-number"><i class="fa-solid fa-shield-heart"></i></div>
         <h3>Safety Tips & Best Practices</h3>
         <ul class="instructions">
-          <li>✅ <strong>Always back up</strong> your data before flashing</li>
-          <li>✅ <strong>Use a reliable USB connection</strong> - avoid USB hubs if possible</li>
-          <li>✅ <strong>Keep your computer plugged in</strong> during the process</li>
-          <li>✅ <strong>Close unnecessary programs</strong> to avoid interruptions</li>
-          <li>✅ <strong>Disable Find My iPhone</strong> before flashing</li>
-          <li>✅ <strong>Download from trusted sources</strong> only (like FallyTech)</li>
-          <li>❌ <strong>Never disconnect</strong> your device during flashing</li>
-          <li>❌ <strong>Never update firmware</strong> while on low battery</li>
-          <li>❌ <strong>Don't use your device</strong> while flashing is in progress</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Always back up</strong> your data before flashing</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Use a reliable USB connection</strong> - avoid USB hubs if possible</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Keep your computer plugged in</strong> during the process</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Close unnecessary programs</strong> to avoid interruptions</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Disable Find My iPhone</strong> before flashing</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Download from trusted sources</strong> only (like FallyTech)</li>
+          <li><i class="fa-solid fa-circle-xmark"></i> <strong>Never disconnect</strong> your device during flashing</li>
+          <li><i class="fa-solid fa-circle-xmark"></i> <strong>Never update firmware</strong> while on low battery</li>
+          <li><i class="fa-solid fa-circle-xmark"></i> <strong>Don't use your device</strong> while flashing is in progress</li>
         </ul>
       </div>
     </div>
   </section>
+
+  <section class="steps">
     <div><b>01</b><h3>Select</h3><p>Choose your Apple device from FallyTech's live device database.</p></div>
     <div><b>02</b><h3>Check</h3><p>FallyTech shows firmware versions and whether they are currently signed.</p></div>
     <div><b>03</b><h3>Download</h3><p>The download button sends the customer to the firmware URL returned by the service.</p></div>
@@ -275,6 +289,6 @@
   <div>Powered by FallyTech. Data sourced from IPSW.me. Apple is not affiliated with FallyTech.</div>
 </footer>
 
-<script src="/app.js"></script>
+<script src="/app.js" defer></script>
 </body>
 </html>
